@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base href="https://cymath.com" />
+  <title>Cymath | Math Problem Solver with Steps | Math Solving App</title>
+  <meta name='description' content=\"Solve calculus and algebra problems online with Cymath math problem solver with steps to show your work. Get the Cymath math solving app on your smartphone!\" />
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' />
+  <meta property='og:image' content='http://www.cymath.com/img/cymath_square.gif' /> 
+  <meta property='og:title' content=\"Cymath | Math Problem Solver with Steps | Math Solving App\" /> 
+  <meta property='og:description' content=\"Solve calculus and algebra problems online with Cymath math problem solver with steps to show your work. Get the Cymath math solving app on your smartphone!\" /> 
+  <meta property='og:url' content='https://www.cymath.com/' />
+  <meta charset='utf-8' />
+  <meta name='apple-mobile-web-app-capable' content='yes' />
+  <meta name='apple-mobile-web-app-title' content='Cymath' />
+  <meta name='ios-app' content='app-id=1083328891' />
+  <meta name='google-play-app' content='app-id=com.cymath.cymath' />       
+  <meta name='author' content='Cymath LLC' />
+  <link rel='apple-touch-icon' href='/img/app_icon.png' />
+  <link rel='icon' type='image/png' sizes='32x32' href='/img/favicon-32x32.png' />
+  <link rel='icon' type='image/png' sizes='96x96' href='/img/favicon-96x96.png' />
+  <link rel='icon' type='image/png' sizes='16x16' href='/img/favicon-16x16.png' />
+  <link rel='shortcut icon' href='/img/favicon.ico' />
+  <link rel='alternate' hreflang='en' href='https://www.cymath.com' />
+<link rel='alternate' hreflang='es' href='https://www.cymath.com/sp' />
+<link rel='alternate' hreflang='ja' href='https://www.cymath.com/jp' />
+<link rel='alternate' hreflang='zh-Hans' href='https://www.cymath.com/cn' />
+<link rel='alternate' hreflang='zh-Hant' href='https://www.cymath.com/hk' />
+<link rel='alternate' hreflang='x-default' href='https://www.cymath.com' />
+
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@8.2.2/dist/css/autoComplete.min.css'><link rel='stylesheet' type='text/css' href='/style/core.min.css?357' /><link rel='stylesheet' type='text/css' href='/style/shared.min.css?357' /><link rel='stylesheet' type='text/css' href='/style/main.min.css?357' /><link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet' /><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css' integrity='sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X' crossorigin='anonymous'>
+</head>
+
+<body link='#0000CC' alink='#0000CC' vlink='#0000CC' style='background-image: url("/img/main_bg.jpg"); background-size: cover;'>
+  
+  
+  
+    <div class='cymath_popup' id='choose_topic_popup' style='display: none;'>
+	<div class='cymath_popup_container'>
+		<div class='cymath_popup_cancel no_select' id='choose_topic_popup_cancel'>
+			<img class="close_x" src="/img/close_x.png"/>
+		</div>
+		
+		<input id='choose_topic_search_box' spellcheck='false' autocomplete='off' autocorrect='off' autocapitalize='none' placeholder='Search' style='display: none'/>
+		<div id='topic_container_popular' class='topic_list'>
+			<!-- Dynamically populated -->
+		</div>
+		<div id='topic_container_all' class='topic_list' style='display: none'>
+			<!-- Dynamically populated -->
+		</div>
+
+		<div class='choose_topic_bar'>
+			<div id='choose_topic_tab_popular' class='choose_topic_tab_selected'>
+				<img class='choose_topic_bar_icon' src='/img/star.svg'/>
+				<span><!-- label popular --></span>
+			</div>
+			<div id='choose_topic_tab_all' class='choose_topic_tab_unselected'>
+				<img class='choose_topic_bar_icon' src='/img/list.svg'/>
+				<span><!-- label all --></span>
+			</div>
+		</div>
+	</div>
+</div>
+  
+  <div class='site_overlay'></div>
+  <div class='site_wrap'>
+  <a name='top'></a>
+
+  <script type='text/javascript'>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45573418-1', 'cymath.com');
+ga('send', 'pageview');
+    var g_language_map_shared_js={long_addition:{en:"Long addition",sp:"Adición con decimales",jp:"加算",cn:"长加法",hk:"長加法"},long_division:{en:"Long division",sp:"División con decimales",jp:"除算",cn:"长除法",hk:"長除法"},long_multiplication:{en:"Long multiplication",sp:"Multiplicación con Decimales",jp:"乗算",cn:"長乗法",hk:"長乗法"},long_subtraction:{en:"Long subtraction",sp:"Sustracción con Decimales",jp:"減算",cn:"长减法",hk:"長減法"},to_decimal:{en:"To decimal",sp:"A decimal",jp:"から小数へ",cn:"转为小数",hk:"轉為小數"},to_percent:{en:"To percent",sp:"A porcentaje",jp:"からパーセントへ",cn:"转为百分比",hk:"轉為百分比"},to_fraction:{en:"To fraction",sp:"A fracción",jp:"から分数へ",cn:"转为分数",hk:"轉為分數"},to_improper_fraction:{en:"To improper fraction",sp:"A fracción impropia",jp:"から仮分数へ",cn:"转为假分数",hk:"轉為假分數"},to_mixed_fraction:{en:"To mixed fraction",sp:"A fracción mixta",jp:"から混合分数へ",cn:"转为带分数",hk:"轉為帶分數"},radian_to_degree:{en:"Radian to degree",sp:"Radianes a grados",jp:"ラジアンを角度に変換する",cn:"将弧度转换为度数",hk:"將弧度轉換為度數"},degree_to_radian:{en:"Degree to radian",sp:"Grados a radianes",jp:"角度をラジアンに変換する",cn:"将度数转换为弧度",hk:"將度數轉換為弧度"},rationalize_denominator:{en:"Rationalize denominator",sp:"Racionalizar denominador",jp:"分母の合理化",cn:"合理化分母",hk:"有理化分母"},solve_absolute_value_equation:{en:"Solve absolute value equation",sp:"Resolver ecuación de valor absoluto",jp:"絶対値方程式を解く",cn:"求解绝对值方程",hk:"求解絕對值方程"},solve_exponential_equation:{en:"Solve exponential equation",sp:"Resolver ecuación exponencial",jp:"指数方程式を解く",cn:"求解指数方程",hk:"求解指數方程"},solve_inequality:{en:"Solve inequality",sp:"Resolver la desigualdad",jp:"不等式を解く",cn:"求解不等式",hk:"求解不等式"},solve_linear_equation:{en:"Solve linear equation",sp:"Resolver ecuación lineal",jp:"線形方程式を解く",cn:"求解线性方程",hk:"求解線性方程"},solve_logarithmic_equation:{en:"Solve logarithmic equation",sp:"Resolver ecuacion logaritmica",jp:"対数方程式を解く",cn:"求解对数方程",hk:"求解對數方程"},solve_quadratic_equation:{en:"Solve quadratic equation",sp:"Resolver ecuacion cuadrática",jp:"二次方程式を解く",cn:"求解二次方程",hk:"求解二次方程"},solve_radical_equation:{en:"Solve radical equation",sp:"Resolver ecuación radical",jp:"ラジカル方程式を解く",cn:"求解根式方程",hk:"求解根式方程"},solve_rational_equation:{en:"Solve rational equation",sp:"Resolver ecuacion racional",jp:"有理方程式を解く",cn:"求解有理方程",hk:"求解有理方程"},solve_system_of_equations:{en:"Solve system of equations",sp:"Resolver sistema de ecuaciones",jp:"連立方程式を解く",cn:"求解方程组",hk:"求解方程組"},solve_system_of_inequalities:{en:"Solve system of inequalities",sp:"Solucionar sistema de desigualdades",jp:"不等式系を解く",cn:"求解不等式组",hk:"求解不等式組"},differentiate:{en:"Differentiate",sp:"Diferenciar",jp:"微分",cn:"微分法",hk:"微分法"},factor:{en:"Factor",sp:"Factorizar",jp:"因数",cn:"因式分解",hk:"因式分解"},graph:{en:"Graph",sp:"Gráfica",jp:"グラフ",cn:"图形",hk:"圖形"},integrate:{en:"Integrate",sp:"Integrar",jp:"積分",cn:"积分法",hk:"積分法"},solve_equation:{en:"Solve equation",sp:"Resolver ecuación",jp:"方程式を解く",cn:"求解方程",hk:"求解方程"},asymptotes:{en:"Asymptotes",sp:"Asíntotas",jp:"漸近線",cn:"渐近线",hk:"漸近線"},complete_the_square:{en:"Complete the square.",sp:"Completa el cuadrado.",jp:"2乗を完成する。",cn:"用配方法。",hk:"用配方法。"},"complete_the_square (ui)":{en:"Complete the square",sp:"Completa el cuadrado",jp:"2乗を完成する",cn:"用配方法",hk:"用配方法"},domain:{en:"Domain",sp:"Dominio",jp:"定義域",cn:"定义域",hk:"定義域"},range:{en:"Range",sp:"Rango",jp:"範囲",cn:"值域",hk:"值域"},evaluate:{en:"Evaluate",sp:"Evaluar",jp:"値をもとめる",cn:"评估",hk:"評估"},"simplify (ui)":{en:"Simplify",sp:"Simplifica",jp:"簡略化する",cn:"简化",hk:"簡化"},"expand (ui)":{en:"Expand",sp:"Expandir",jp:"展開",cn:"扩展",hk:"擴展"},"complete_the_square (ui)":{en:"Complete the square",sp:"Completa el cuadrado",jp:"2乗を完成する",cn:"用配方法",hk:"用配方法"},"cancel (ui)":{en:"Cancel",sp:"Cancelar",jp:"キャンセル",cn:"取消",hk:"取消"},gcf:{en:"GCF",sp:"MCD",jp:"最大公約数",cn:"最大公因数",hk:"最大公因數"},lcm:{en:"LCM",sp:"MCM",jp:"最小公倍数",cn:"最小公倍数",hk:"最小公倍數"},intercepts:{en:"Intercepts",sp:"Intersecciones",jp:"切片",cn:"截距",hk:"截距"},partial_fraction:{en:"Partial fraction",sp:"Fracción parcial",jp:"部分切片",cn:"部分分式",hk:"部分分式"},polynomial_division:{en:"Polynomial division",sp:"División de polinomios",jp:"多項式除算",cn:"多项式除法",hk:"多項式除法"},prime_factorization:{en:"Prime factorization",sp:"Descomposición en factores primos",jp:"素因数分解",cn:"质因数分解",hk:"質因數分解"},simplify_fraction:{en:"Simplify fraction",sp:"Simplifica la fracción",jp:"分数を約分する",cn:"简化分数",hk:"簡化分數"},popular:{en:"Popular",sp:"Popular",jp:"人気",cn:"流行",hk:"流行"},all:{en:"All",sp:"Todos",jp:"すべて",cn:"所有",hk:"所有"},search:{en:"Search",sp:"Búsqueda",jp:"検索",cn:"搜索",hk:"搜索"},choose_topic:{en:"Choose Topic",sp:"Elige El Tema",jp:"トピックを選択",cn:"选择主题",hk:"選擇主題"},examples:{en:"Examples",sp:"Ejemplos",jp:"例",cn:"例子",hk:"例子"},language:{en:"Language",sp:"Idioma",jp:"言語",cn:"语言",hk:"語言"},solution:{en:"Solution",sp:"Solución",jp:"解答",cn:"答案",hk:"答案"},history:{en:"History",sp:"Historia",jp:"歴史",cn:"历史",hk:"歷史"},bookmarks:{en:"Bookmarks",sp:"Marcadores",jp:"しおり",cn:"书签",hk:"書籤"},learning:{en:"Learning",sp:"Aprendizaje",jp:"学習",cn:"学习",hk:"學習"},practice:{en:"Practice",sp:"Práctica",jp:"練習",cn:"实践",hk:"實踐"},reference:{en:"Reference",sp:"Referencia",jp:"参照",cn:"参考",hk:"參考"},blog:{en:"Blog",sp:"Blog",jp:"ブログ",cn:"博客",hk:"博客"},info:{en:"Info",sp:"Información",jp:"情報",cn:"信息",hk:"信息"},contact_us:{en:"Contact Us",sp:"Contáctanos",jp:"お問い合わせ",cn:"联系我们",hk:"聯繫我們"},about:{en:"About",sp:"Sobre Nosotros",jp:"会社情報",cn:"关于",hk:"關於"}};var g_language_map_desktop_js={plot_a_function:{en:"Plot a function",sp:"Traza una función",jp:"関数を図示する",cn:"绘制一个函数图像",hk:"繪製一個函數圖像"},cosine:{en:"cosine",sp:"coseno",jp:"余弦",cn:"余弦",hk:"餘弦"},cosine_of_x:{en:"cosine of x",sp:"coseno de x",jp:"xの余弦",cn:"x的余弦",hk:"x的餘弦"},cosine_of_90_degrees:{en:"cosine of 90 degrees",sp:"coseno de 90 grados",jp:"90度の余弦",cn:"余弦为90度",hk:"餘弦為90度"},cosine_of_pi:{en:"cosine of PI",sp:"coseno de PI",jp:"πの余弦",cn:"PI的余弦",hk:"PI的餘弦"},sine:{en:"sine",sp:"seno",jp:"正弦",cn:"正弦",hk:"正弦"},sine_of_x:{en:"sine of x",sp:"seno de x",jp:"xの正弦",cn:"x的正弦",hk:"x的正弦"},sine_of_90_degrees:{en:"sine of 90 degrees",sp:"seno de 90 grados",jp:"90度の正弦",cn:"正弦度为90度",hk:"正弦度為90度"},sine_of_pi:{en:"sine of PI",sp:"seno de PI",jp:"πの正弦",cn:"PI的正弦",hk:"PI的正弦"},tangent:{en:"tangent",sp:"tangente",jp:"正接",cn:"切线",hk:"切線"},tangent_of_x:{en:"tangent of x",sp:"tangente de x",jp:"xの正接",cn:"x的正切",hk:"x的正切"},tangent_of_90_degrees:{en:"tangent of 90 degrees",sp:"tangente de 90 grados",jp:"90度の正接",cn:"相切90度",hk:"相切90度"},tangent_of_pi:{en:"tangent of PI",sp:"tangente de PI",jp:"πの正接",cn:"PI的正切值",hk:"PI的正切值"},secant:{en:"secant",sp:"secante",jp:"正割",cn:"割线",hk:"割線"},secant_of_x:{en:"secant of x",sp:"secante de x",jp:"xの正割",cn:"x的正割",hk:"x的正割"},secant_of_90_degrees:{en:"secant of 90 degrees",sp:"secante de 90 grados",jp:"90度の正割",cn:"割下90度",hk:"割下90度"},secant_of_pi:{en:"secant of PI",sp:"secante de PI",jp:"πの正割",cn:"PI的割线",hk:"PI的割線"},cosecant:{en:"cosecant",sp:"cosecante",jp:"余割",cn:"余割",hk:"餘割"},cosecant_of_x:{en:"cosecant of x",sp:"cosecante de x",jp:"xの余割",cn:"x的余割",hk:"x的餘割"},cosecant_of_90_degrees:{en:"cosecant of 90 degrees",sp:"cosecante de 90 grados",jp:"90度の余割",cn:"90度的余割",hk:"90度的餘割"},cosecant_of_pi:{en:"cosecant of PI",sp:"cosecante de PI",jp:"πの余割",cn:"PI的余割",hk:"PI的餘割"},cotangent:{en:"cotangent",sp:"cotangente",jp:"余接",cn:"余切",hk:"餘切"},cotangent_of_x:{en:"cotangent of x",sp:"cotangente de x",jp:"xの余接",cn:"x的余切",hk:"x的餘切"},cotangent_of_90_degrees:{en:"cotangent of 90 degrees",sp:"cotangente de 90 grados",jp:"90度の余接",cn:"余切90度",hk:"餘切90度"},cotangent_of_pi:{en:"cotangent of PI",sp:"cotangente de PI",jp:"πの余接",cn:"PI的余切",hk:"PI的餘切"},square_root:{en:"square root",sp:"raíz cuadrada",jp:"平方根",cn:"平方根",hk:"平方根"},square_root_of_x:{en:"square root of x",sp:"raíz cuadrada de x",jp:"xの平方根",cn:"x的平方根",hk:"x的平方根"},cube_root:{en:"cube root",sp:"raíz cúbica",jp:"立方根",cn:"立方根",hk:"立方根"},cube_root_of_x:{en:"cube root of x",sp:"raíz cúbica de x",jp:"xの立方根",cn:"x的立方根",hk:"x的立方根"},absolute_value:{en:"absolute value",sp:"valor absoluto",jp:"絶対値",cn:"绝对值",hk:"絕對值"},absolute_value_of_x:{en:"absolute value of x",sp:"valor absoluto de x",jp:"x の絶対値",cn:"x的绝对值",hk:"x的絕對值"},evaluate_an_expression_with_variables:{en:"Evaluate an expression with variables.",sp:"Evaluar una expresión con variables.",jp:"変数のある数式を求める。",cn:"计算有变数的表达式。",hk:"計算有變數的表達式。"},convert_to_the_form_ax_h2_k:{en:"Convert to the form a(x+h)^2+k.",sp:"Convertir a la forma a(x+h)^2+k.",jp:"「a(x+h)^2+k」の形に変換する。",cn:"转换为形式a(x+h)^2+k。",hk:"轉換為形式a(x+h)^2+k。"},find_the_derivative:{en:"Find the derivative.",sp:"Encontrar la derivada.",jp:"微分する。",cn:"找导数。",hk:"找導數。"},find_the_integral:{en:"Find the integral.",sp:"Encontrar la integral.",jp:"積分する。",cn:"找积分。",hk:"找積分。"},expand_an_expression_includes_foil:{en:"Expand an expression. Includes FOIL.",sp:"Expandir una expresión. Incluye FOIL.",jp:"数式を展開する(分配法則を用いた式の展開を含む)。",cn:"展开表达式。包括FOIL。",hk:"展開表達式。包括FOIL。"},factor_an_expression_by_grouping:{en:"Factor an expression (by grouping, by GCF, etc).",sp:"Factorizar una expresión (por agrupación, por MCD, etc).",jp:"数式を因数分解する(組み分け，最大公約数などによる)",cn:"因式分解表达式(通过分组，通过最大公因数等)。",hk:"因式分解表達式(通過分組，通過最大公因數等)。"},find_the_greatest_common_factor:{en:"Find the Greatest Common Factor of a list of numbers.",sp:"Encontrar el máximo Común divisor de una lista de números.",jp:"最大公約数を求める",cn:"找数字中的最大公因数。",hk:"找數字中的最大公因數。"},find_the_least_common_multiple:{en:"Find the Least Common Multiple of a list of numbers.",sp:"Encontrar el Mínimo Común Múltiplo de una lista de números.",jp:"最小公倍数を求める",cn:"找数字中的最小公倍数。",hk:"找數字中的最小公倍數。"},apply_partial_fraction_decomposition:{en:"Apply partial fraction decomposition.",sp:"Aplicar Descomposición en Fracciones Parciales.",jp:"部分分数分解を適用する",cn:"应用部分分式分解。",hk:"應用部分分式分解。"},apply_polynomial_long_division:{en:"Apply polynomial long division.",sp:"Aplicar División de Polinomios.",jp:"多項式を筆算で解く。",cn:"应用多项式长除法。",hk:"應用多項式長除法。"},apply_prime_factorization_to_a:{en:"Apply prime factorization to a number.",sp:"Aplicar factorización prima a un número.",jp:"素因数分解を適用する。",cn:"应用质因数分解于数字。",hk:"應用質因數分解於數字。"},solve_an_equation:{en:"Solve any equation.",sp:"Resuelve cualquier ecuación.",jp:"方程式を解く。",cn:"求解方程式。",hk:"求解方程式。"},reduce_an_expression_to_its:{en:"Reduce an expression to its minimal form.",sp:"Reducir una expresión a su forma mínima.",jp:"数式を最も簡単な形にする。",cn:"将表达式简化为最小形式。",hk:"將表達式簡化為最小形式。"},convert_a_fraction_to_mixed:{en:"Convert a fraction to mixed fraction.",sp:"Convertir una fracción a una fracción mixta.",jp:"分数を帯分数に変換する。",cn:"将分数转换为带分数。",hk:"將分數轉換為帶分數。"},convert_a_fraction_to_improper:{en:"Convert a fraction to improper fraction.",sp:"Convertir una fracción a fracción impropia.",jp:"分数を仮分数に変換する。",cn:"将分数转换为假分数。",hk:"將分數轉換為假分數。"},reduce_a_fraction_to_its:{en:"Reduce a fraction to its simplest form.",sp:"Reducir una fracción a su forma más simple.",jp:"方程式を解く。",cn:"将分数降次到最简单的形式。",hk:"將分數降次到最簡單的形式。"},convert_a_decimal_or_percent:{en:"Convert a decimal or percent to fraction.",sp:"Convertir un decimal o porcentaje a fracción.",jp:"数式を最も簡単な形にする。",cn:"将小数或百分比转换为分数。",hk:"將小數或百分比轉換為分數。"},convert_an_expression_to_decimal:{en:"Convert an expression to decimal.",sp:"Convertir una expresión decimal.",jp:"方程式を解く。",cn:"将表达式转换为小数。",hk:"將表達式轉換為小數。"},convert_an_expression_to_percent:{en:"Convert an expression to percent.",sp:"Convertir una expresión a porcentaje.",jp:"数式を最も簡単な形にする。",cn:"将表达式转换为百分比。",hk:"將表達式轉換為百分比。"},convert_radian_to_degree:{en:"Convert radian to degree.",sp:"Convertir radianes a grados.",jp:"ラジアンを角度に変換する。",cn:"将弧度转换为度数。",hk:"將弧度轉換為度數。"},convert_degree_to_radian:{en:"Convert degree to radian.",sp:"Convertir grados a radianes.",jp:"角度をラジアンに変換する。",cn:"将度数转换为弧度。",hk:"將度數轉換為弧度。"},find_the_xintercept_and_yintercept:{en:"Find the x-intercept and y-intercept of a function.",sp:"Hallar la intersección en x y la intersección en y de una función.",jp:"関数のx切片とy切片を求める。",cn:"找函数的x截距和y截距。",hk:"找函數的x截距和y截距。"},find_the_vertical_horizontal_and:{en:"Find the vertical, horizontal and slant asymptotes.",sp:"Encontrár las asíntotas verticales, horizontales y oblícuas.",jp:"x軸方向，y軸方向および斜めの漸近線を求める。",cn:"找垂直，水平和倾斜渐近线。",hk:"找垂直，水平和傾斜漸近線。"},find_the_domain_of_a:{en:"Find the domain of a function.",sp:"Encontrar el dominio de una función.",jp:"定義域を求める。",cn:"找函数的定义域。",hk:"找函數的定義域。"},find_the_range_of_a:{en:"Find the range of a function.",sp:"Encontrar el rango de una función.",jp:"関数の値域を求める。",cn:"找函数的值域。",hk:"找函數的值域。"},to_ensure_the_denominator_contains:{en:"To ensure the denominator contains no radical.",sp:"Para asegurar que el denominador no contiene radicales.",jp:"分母がラジカルを含まないようにするため。",cn:"确保分母不含根。",hk:"確保分母不含根。"},"equation_solving (sentence case)":{en:"Equation solving.",sp:"Resolución de ecuaciones.",jp:"方程式を解く。",cn:"方程求解。",hk:"方程求解。"}};
+    var APP_NAME = 'Cymath';
+    
+    var gIsHomePage = true;
+    var gIsAnswerPage = false;
+    var gIsMarketingPage = false;
+
+    var gMobileOrTablet = false;    
+    var gLang = 'en';
+    var gLoggedIn = false;
+    var gUserLevel = 0;
+  </script><div class='content'><div style='display: block; width: 100%;'><table id='nav_bar' class='nav_bar_table' style='box-shadow: 0px 1px 1px #CCC; background-color: #FCFCFC;' width='100%' cellpadding='0' cellspacing='0'><tr><td style='width:100%;' align='center'><table class='nav_bar_inner_table' cellpadding='0' cellspacing='0'><tr>
+  <td width='100%'><div style='display: none' class='menu_div_left logo_text'><a href='/'><img class='cymath_text' src='/img/cymath_text.svg'/></a></div><div class='menu_div_left'><a class='menu_link' href='/reference'>Reference</a></div><div class='menu_div_left'><a class='menu_link' href='/practice'>Practice</a></div><div class='plus_links'><div class='menu_div_right'><a href='/join'><div class='join_plus_button button info'>Premium</div></a></div><div class='menu_div_right'><a href='/log-in'><div class='log_in_button'>Log In</div></a></div></div><div class='free_links'><div class='menu_div_right'><ul class='language_picker'><li><img src='/img/world.svg' class='world'/>English</li><a href='/' onclick='setLanguageCookie("en");'><li style='color:#606060'>English &#10004;</li></a><a href='/sp/' onclick='setLanguageCookie("sp");'><li style='color:#606060'>Español</li></a><a href='/jp/' onclick='setLanguageCookie("jp");'><li style='color:#606060'>日本語</li></a><a href='/cn/' onclick='setLanguageCookie("cn");'><li style='color:#606060'>简体中文</li></a><a href='/hk/' onclick='setLanguageCookie("hk");'><li style='color:#606060'>繁體中文</li></a></ul></div></div></td>
+  </tr></table></td></tr></table><div class='banner_ad' style='display: none'>  <script>
+
+  var html_728 = '<iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=48&l=ur1&category=amazonhomepage&f=ifr&linkID=9c468ba3c3b217eb83e650474832a511&t=cymath02-20&tracking_id=cymath02-20" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
+
+  var html_468 = '<iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=26&l=ur1&category=amazonhomepage&f=ifr&linkID=130f15bdcef5b30c2fab0dee2a53f711&t=cymath02-20&tracking_id=cymath02-20" width="468" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
+
+  var html_320 = '<iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=288&l=ur1&category=amazonhomepage&f=ifr&linkID=3e82c6297a2236be70ce863c02185ab0&t=cymath02-20&tracking_id=cymath02-20" width="320" height="50" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
+
+  if (document.body.clientWidth >= 740) {
+    document.writeln(html_728);
+  }
+  else if (document.body.clientWidth >= 480) {
+    document.writeln(html_468);
+  }
+  else if (document.body.clientWidth >= 320) {
+    document.writeln(html_320);
+  }
+
+  </script></div><div class='header_div'><table style='table-layout: fixed; width: 100%;' id='header_table'><tr><td width='100%' valign='top'><span id='homepage' style='display: none'></span>
+<table class='content_table' cellspacing='0' cellpadding='0'>
+  <tr>
+    <td class='term_input_box' colspan='3' width='100%' valign='top' align='center'>
+      <img id='main_logo' src='/img/cymath_logo_v5.svg'/><div id='cymath_slogan'>Join millions of users in problem solving!</div><div id='term_preview_div' style='display: none'><h1 id='term_preview'></h1></div><div style='clear: both'></div><div style='display: inline-block; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;'><table style='display: block' id='control' cellspacing='0' cellpadding='0' width='100%'><tr><td align='left' width='100%'><table class='desktop_input_table' align='center' cellspacing='0' cellpadding='0' width='100%'><tr>
+    <td width='92%'><div id='outer_q'><input class='problem_input_desktop' id='problem_input_desktop' spellcheck='false' autocomplete='off' autocorrect='off' autocapitalize='none' id='q' name='q' placeholder='Enter problem (e.g. 2x+5=9)' value=''/></div></td>
+    <td width='8%'><div class='submit_solve_desktop right_rounded button positive'><img class='search_icon' src='/img/search_white.png?2'/></div></td>
+    </tr>
+    </table><div id='keyboard_div' style='display: none'><div class='row_desktop'>
+        <div id='k_plus'>+</div>
+        <div id='k_minus'>&#8722;</div>
+        <div id='k_period' style='font-size: 22px'>.</div>
+        <div id='k_pow2'>
+          <div class='sprite sprite-key_squared'></div>
+        </div>
+        <div id='k_pow'>
+          <div class='sprite sprite-key_nth_power'></div>              
+        </div>     
+        <div id='k_ln'>ln</div>
+        <div id='k_gt'>&gt;</div>
+        <div id='k_lt'>&lt;</div>
+      </div>
+      
+      <div class='row_desktop'>
+        <div id='k_multi'>&#215;</div>
+        <div id='k_div'>&#247;</div>
+        <div id='k_slash'>/</div>             
+        <div id='k_frac'>
+          <div class='sprite sprite-key_fraction'></div>
+        </div>
+        <div id='k_mixed_frac'>
+          <div class='sprite sprite-key_mixed_fraction'></div>
+        </div>        
+        <div id='k_log'>log</div>
+        <div id='k_ge'>&ge;</div>
+        <div id='k_le'>&le;</div>       
+      </div>
+      
+      <div class='row_desktop'>
+        <div id='k_br_l'>(</div>
+        <div id='k_br_r'>)</div>     
+        <div id='k_abs'>
+          <div class='sprite sprite-key_abs'></div>
+        </div>              
+        <div id='k_sqrt'>
+          <div class='sprite sprite-key_square_root'></div>
+        </div>
+        <div id='k_root'>
+          <div class='sprite sprite-key_nth_root'></div>
+        </div>
+        <div id='k_logx'>log<sub>x</sub></div>              
+        <div id='k_equal'>=</div>
+        <div id='k_pct'>%</div> 
+      </div></div><div style='margin: 10px 0 50px 0'>
+      <div style='float: left; width: 33%; font-size: 12px; white-space: nowrap;'>
+        <div id='choose_topic_button_desktop' class='no_select'><img src='/img/choose_topic.png' class='choose_topic_icon'/>Choose Topic</div>
+      </div>
+      <div style='float: left; width: 34%; text-align: center;'>
+        <div id='keyboard_link' class='keyboard_text' style='display: inline-block'><img class='keyboard_icon_desktop' src='/img/keyboard_v2.png' /></div>
+      </div>
+      <div style='float: left; width: 33%; text-align: right;'>
+        <div id='examples_button' class='no_select'>Examples <img class='examples_icon' src='/img/examples_icon.png'/></div>
+        <div id='examples_section' style='visibility: hidden'>
+          <div id='examples_box'>
+            <div class='example_row'><a href='/answer?q=(x%2B1)%2F2%2B4%3D7'>"(x+1)/2+4=7"</a></div>	
+            <div class='example_row'><a href='/answer?q=factor%28x%5E2%2B5x%2B6%29'>"factor x^2+5x+6"</a></div>	
+            <div class='example_row'><a href='/answer?q=int%28cos%28x%29%5E3%29'>"integrate cos(x)^3"</a></div>
+            <div class='examples_more'><a href='/practice'>More &#187;</a></div>
+          </div>
+        </div>   
+      </div>
+    </div></td></tr></table></div>
+    </td>
+  </tr>
+</table>  </td></tr></table></div></div><div class='push'></div></div><div class='footer_desktop'><div style='display: inherit' class='footer_div'><table class='footer_inner_table' cellspacing='0' cellpadding='0'><tr><td align='center' style='footer_cell'><div id='footer_links_div'><p class='footer_text'><a class='footer_link' href='/contact'>Contact Us</a><a class='footer_link' href='/about'>About</a><a class='footer_link' href='/blog'>Blog</a><a class='footer_link' href='/terms'>Terms</a><a class='footer_link' href='/privacy'>Privacy</a></p></div></td><td nowrap><div class='footer_text' id='footer_right_div'><span>Cymath for</span><a id='app_link_ios' class='app_link' href='https://itunes.apple.com/us/app/cymath-math-problem-solver/id1083328891' alt='Cymath Math Problem Solver App in the App Store' target='_blank'>iOS</a><a id='app_link_android' class='app_link' href='https://play.google.com/store/apps/details?id=com.cymath.cymath' alt='Cymath Math Problem Solver App on Google Play' target='_blank'>Android</a></div></td></tr></table></div></div><script src='https://apis.google.com/js/platform.js' defer></script>
+<script src='https://apis.google.com/js/api:client.js' defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" defer></script>
+<script src='/js/core.min.js?357' defer></script>
+<script src='/js/shared.min.js?357' defer></script>
+<script src='/js/oauth.min.js?357' defer></script><script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@8.2.2/dist/js/autoComplete.min.js" defer></script><script src='/js/main.min.js?357' defer></script><script src='/js/compat.min.js?357' defer></script></div></body></html>
